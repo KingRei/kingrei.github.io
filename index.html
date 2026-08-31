@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  
-  <title>理工金哥哥</title>
+  <title>理工金哥哥 | 理工金哥哥</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
+  <meta name="description" content="理工金哥哥的技術筆記。100 Days of Python：資料結構與演算法，每天一篇加一個可以動手玩的互動示範。">
+<meta property="og:type" content="website">
 <meta property="og:title" content="理工金哥哥">
 <meta property="og:url" content="https://kingrei.github.io/index.html">
 <meta property="og:site_name" content="理工金哥哥">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="Eric King">
+<meta property="og:description" content="理工金哥哥的技術筆記。100 Days of Python：資料結構與演算法，每天一篇加一個可以動手玩的互動示範。">
+<meta property="og:locale" content="zh_TW">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="理工金哥哥" type="application/atom+xml">
   
   
-    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   
   
     
@@ -32,6 +32,31 @@
 <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
 
   
+<style>
+.demo-embed{margin:1.8em 0;border:1px solid #ddd;border-radius:6px;overflow:hidden;background:#04121c}
+.demo-embed iframe{display:block;width:100%;height:82vh;min-height:560px;border:0}
+.demo-bar{display:flex;align-items:center;gap:.8em;flex-wrap:wrap;
+  padding:.55em .9em;background:#062434;color:#8fa3ac;font-size:14px;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+.demo-bar b{color:#dff2f5;font-weight:600}
+.demo-bar .sp{flex:1}
+.demo-bar a{color:#3fe0dd;text-decoration:none;border:1px solid #0a6b74;
+  border-radius:999px;padding:.2em .8em;white-space:nowrap}
+.demo-bar a:hover{background:#0a6b74;color:#fff}
+.post-links{margin:1.6em 0;padding:.2em 0;font-size:15px}
+.post-links a{margin-right:1.2em;white-space:nowrap}
+.post-nav{display:flex;justify-content:space-between;gap:1em;margin:2.4em 0 0;
+  padding-top:1em;border-top:1px solid #ddd;font-size:15px}
+.post-nav span{max-width:48%}
+.day-list{list-style:none;margin:0;padding:0}
+.day-list li{padding:.85em 0;border-bottom:1px solid #eee}
+.day-list .n{display:inline-block;min-width:4.2em;color:#999;font-size:13px;
+  letter-spacing:1px;text-transform:uppercase}
+.day-list .t{font-weight:600}
+.day-list .s{display:block;margin-top:.3em;color:#666;font-size:14px;line-height:1.55}
+@media(max-width:700px){.demo-embed iframe{height:70vh;min-height:460px}}
+</style>
+
 <meta name="generator" content="Hexo 6.3.0"></head>
 
 <body>
@@ -52,6 +77,8 @@
         
           <a class="main-nav-link" href="/">Home</a>
         
+          <a class="main-nav-link" href="/python/">100 Days of Python</a>
+        
           <a class="main-nav-link" href="/archives">Archives</a>
         
       </nav>
@@ -69,12 +96,665 @@
 </header>
 
       <div class="outer">
-        <section id="main">
+        <section id="main"><article id="post-day21" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/python/day21/" class="article-date">
+  <time class="dt-published" datetime="2026-08-31T00:00:00.000Z" itemprop="datePublished">2026-08-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/python/day21/">Day 21 - Selection and top-k - from quickselect to the kernels inside an LLM / 選擇問題與 Top-K：從 quickselect 到 GPU kernel</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+<p>LLM 每吐出一個 token，都要跑一次 top-k。模型對十萬多個 vocabulary entry 各給一個分數， 取樣之前得先挑出最好的那幾個。這顆 kernel 執行的次數大概是整個 stack 裡數一數二頻繁的， 所以被優化得很兇。而當我去讀我自己最常用的兩份實作 —— flashinfer 的 <code>topk.cuh</code> 和 SGLang 的 <code>topk_impl.cuh</code> —— 讓我意外的是<strong>難的地方跑到哪裡去了</strong>：幾乎沒有一點難度在「選擇」本身。 難的是誰負責把一個計數器歸零，以及平手的時候誰贏。</p>
+<p>昨天講排序。今天要講的是：排序回答的問題，比我們真正問的大太多了。</p>
+<p><a class="article-more-link" href="/python/day21/">Read More</a></p>
+      
+    </div>
+  </div>
+  
+</article>
+
+<article id="post-day20" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/python/day20/" class="article-date">
+  <time class="dt-published" datetime="2026-08-30T00:00:00.000Z" itemprop="datePublished">2026-08-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/python/day20/">Day 20 - Divide and conquer, twice - merge sort, quick sort, and going parallel / 分治排序：merge sort、quick sort，以及它們的平行版</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+<p>這兩個演算法都是把陣列切一半再遞迴，也都是 O(n log n)。差別只有一件事：<strong>力氣花在哪裡</strong>。 Merge sort 按照 index 硬切，所有成本都在合併；Quick sort 把成本全砸在 partition，合併則完全免費。</p>
+<p>其他的差異全部都是從這句話長出來的：穩定性、最壞情況、能不能排一個比記憶體還大的檔案、 平行起來好不好看。今天就是在講這件事。</p>
+<p>昨天的 A* 最後收在 work 與 depth：平行 BFS 的總工作量跟序列版一樣是 O(V+E)，但關鍵路徑短很多。 排序正好是把這個觀念操到底的地方。</p>
+<p><a class="article-more-link" href="/python/day20/">Read More</a></p>
+      
+    </div>
+  </div>
+  
+</article>
+
+<article id="post-day19" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/python/day19/" class="article-date">
+  <time class="dt-published" datetime="2026-08-29T00:00:00.000Z" itemprop="datePublished">2026-08-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/python/day19/">Day 19 - A* - letting the search carry a guess / A*：讓搜尋帶著一個猜測往前走</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+<p>昨天的 Dijkstra 是個很公平的演算法。它不臆測、不預設立場，永遠挑「目前為止最便宜」的那一格 展開——不管那格在地圖的哪個方向，包括你正背對的那一邊。換成從城市這頭導航到那頭，這份公平 的意思就是：在找到第一條有用的路之前，先把半座城的巷子都翻過一遍。</p>
+<p>但你其實知道一件 Dijkstra 死也不肯用的事：終點大概在哪個方向。A* 就是<strong>「讓搜尋把這件事用起來」之後的樣子</strong>。</p>
+<p><a class="article-more-link" href="/python/day19/">Read More</a></p>
+      
+    </div>
+  </div>
+  
+</article>
+
+<article id="post-day18" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/python/day18/" class="article-date">
+  <time class="dt-published" datetime="2026-08-28T00:00:00.000Z" itemprop="datePublished">2026-08-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/python/day18/">Day 18 - Tarjan - one DFS with timestamps, three structures / Tarjan：一個 DFS 時間戳，三種結構</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+<p>指著一張網路拓撲圖問三個問題。哪一條線路斷掉會讓網路裂成兩半？哪一台機器掛掉會帶走半個網路？ 哪幾個服務彼此都到得了，所以改動其中一個，影響會繞一圈回到自己身上？</p>
+<p>聽起來是三個問題，其實是同一次 DFS，只是每個節點多記了兩個整數。</p>
+<p>Day 17 講的是「假設的代價」——Dijkstra 用「沒有負權」換速度，前提一破，它會安靜地給你錯的答案。 今天剛好相反：一個我們早就會的走訪，身上一直帶著我們沒去撿的資訊。</p>
+<p><a class="article-more-link" href="/python/day18/">Read More</a></p>
+      
+    </div>
+  </div>
+  
+</article>
+
+<article id="post-day17" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/python/day17/" class="article-date">
+  <time class="dt-published" datetime="2026-08-27T00:00:00.000Z" itemprop="datePublished">2026-08-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/python/day17/">Day 17 - Negative weights and all pairs - Bellman-Ford, SPFA, Floyd-Warshall / 負權與全點對：Bellman-Ford / SPFA / Floyd-Warshall</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+<p>昨天的 <code>heap_greedy</code> 骨架裡藏了一句沒有明講的理由：<em>任何通往這個節點的其他路線，都必須經過 還留在 heap 裡的某個節點，而那個節點的距離已經不小於它，再多接幾條邊只會更長。</em> Dijkstra 的所有保證都建立在這句話上，而這句話建立在一個前提上——多加一條邊，不會讓路徑變短。</p>
+<p>只要權重可以是負的，這句話就不成立了。而真正麻煩的是：<strong>Dijkstra 不會告訴你。</strong> 沒有例外、沒有無窮迴圈、沒有警告，它就是回傳一個長得跟答案一模一樣的數字。</p>
+<p>三個節點的圖，邊是 <code>A-&gt;B = 5</code>、<code>A-&gt;C = 2</code>、<code>B-&gt;C = -10</code>，Dijkstra 給你 <code>C = 2</code>。 正確答案是走 B 的 <code>-5</code>。今天整篇文章都是為了處理這件事。</p>
+<p><a class="article-more-link" href="/python/day17/">Read More</a></p>
+      
+    </div>
+  </div>
+  
+</article>
+
+<article id="post-day16" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/python/day16/" class="article-date">
+  <time class="dt-published" datetime="2026-08-26T00:00:00.000Z" itemprop="datePublished">2026-08-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/python/day16/">Day 16 - Prim and Dijkstra - one heap-greedy skeleton / Prim 與 Dijkstra：同一套 heap greedy 骨架</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+<p>這兩個演算法我當年是分開學的。Prim 在「最小生成樹」那一章，Dijkstra 在「最短路徑」那一章，中間隔了好幾週， 課本也沒有暗示它們有什麼關係。直到某次我把它們前後寫在同一個檔案裡，才發現 diff 只有四個字元。</p>
+<p>先講結論再講原理：<strong>一個函式、一個 heap、一個迴圈，用一個 <code>key</code> 參數決定你拿到的是哪一個演算法。</strong> <code>key</code> 比的是「這一條邊多重」就是 Prim，比的是「從起點走過來總共多長」就是 Dijkstra。 其他部分——heap、<code>done</code> 陣列、放鬆（relax）、複雜度——完全一樣。</p>
+<p>昨天的 <a href="https://medium.com/100-days-of-python">Kruskal</a> 是把所有邊排序一次，再用 Union-Find 過濾。 Prim 從另一個方向解同一個問題，而正是這個方向的改變，讓 Dijkstra 免費掉出來。</p>
+<p><a class="article-more-link" href="/python/day16/">Read More</a></p>
+      
+    </div>
+  </div>
+  
+</article>
+
+<article id="post-day15" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/python/day15/" class="article-date">
+  <time class="dt-published" datetime="2026-08-25T00:00:00.000Z" itemprop="datePublished">2026-08-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/python/day15/">Day 15 - Minimum Spanning Tree - Kruskal / 最小生成樹：Kruskal</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+<p>七個站點要接成一張網。每一條可能的線路都有價錢，唯一的要求是任何一個站都能連到另一個站， 中間繞幾層沒人在意。那你要買哪幾條線？</p>
+<p>昨天寫了 Union-Find，說它是那個能在近乎常數時間回答「這兩個東西已經連在一起了嗎？」的結構。 今天你會發現，那個問題本身就是整個演算法。</p>
+<p><a class="article-more-link" href="/python/day15/">Read More</a></p>
+      
+    </div>
+  </div>
+  
+</article>
+
+<article id="post-day14" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/python/day14/" class="article-date">
+  <time class="dt-published" datetime="2026-08-24T00:00:00.000Z" itemprop="datePublished">2026-08-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/python/day14/">Day 14 - Union-Find / 併查集</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+<p>昨天的拓樸排序需要先拿到整張圖。今天這個結構幾乎什麼都不需要：它不存邊、不走路徑， 只回答一個問題——<strong>這兩個東西是不是同一組？</strong>——而且回答的時間幾乎是常數。</p>
+<p>聽起來窄到沒什麼用，但你會發現這常常是你唯一想問的問題。這兩個帳號是不是同一個人？ 那條線斷掉之後還剩幾個獨立網路？加上這條邊會不會形成環？哪些像素屬於同一個色塊？</p>
+<p><a class="article-more-link" href="/python/day14/">Read More</a></p>
+      
+    </div>
+  </div>
+  
+</article>
+
+<article id="post-day13" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/python/day13/" class="article-date">
+  <time class="dt-published" datetime="2026-08-23T00:00:00.000Z" itemprop="datePublished">2026-08-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/python/day13/">Day 13 - Topological Sort / 拓樸排序</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+<p>你等過的每一次相依性解析——<code>npm install</code>、CI pipeline、試算表重新計算、大學時被擋修的課表 ——說穿了都是一張圖加一個演算法。那個演算法叫拓樸排序（topological sort），二十行寫得完。</p>
+<p>昨天我們學會走訪一張圖，今天要用「尊重相依關係」的順序走它。你會發現這其實就是昨天的 BFS 和 DFS，只多記了一點東西。接下來整個圖論章節都是這個套路。</p>
+<p><a class="article-more-link" href="/python/day13/">Read More</a></p>
+      
+    </div>
+  </div>
+  
+</article>
+
+<article id="post-day12" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/python/day12/" class="article-date">
+  <time class="dt-published" datetime="2026-08-22T00:00:00.000Z" itemprop="datePublished">2026-08-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/python/day12/">Day 12 - Graph Traversal / BFS 與 DFS</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+<p>昨天我們把圖建好了，今天要學怎麼走過它。畢竟一個走不進去的圖，說穿了只是一堆邊。</p>
+<p>接下來這一週幾乎所有東西——拓樸排序、最小生成樹、最短路徑、連通分量、環偵測——都是下面這兩種走訪加上一點額外的記帳。所以今天內容不多，但後座力很長。</p>
+<p><a class="article-more-link" href="/python/day12/">Read More</a></p>
+      
+    </div>
+  </div>
+  
+</article>
+
+<article id="post-day11" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/python/day11/" class="article-date">
+  <time class="dt-published" datetime="2026-08-21T00:00:00.000Z" itemprop="datePublished">2026-08-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/python/day11/">Day 11 - Graph - turning relationships into a data structure / 圖：把「關係」變成資料結構</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+<p>In computer science, a graph is an abstract data type that is meant to implement the undirected graph and directed graph concepts from mathematics, specifically the field of graph theory.</p>
+<p>Different data structures for the representation of graphs are used in practice:</p>
+<p><a class="article-more-link" href="/python/day11/">Read More</a></p>
+      
+    </div>
+  </div>
+  
+</article>
+
+<article id="post-day10" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/python/day10/" class="article-date">
+  <time class="dt-published" datetime="2026-08-20T00:00:00.000Z" itemprop="datePublished">2026-08-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/python/day10/">Day 10 - Hash Table - Open Addressing / 雜湊表：開放定址法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+<p>Typically, the domain of a hash function (the set of possible keys) is larger than its range (the number of different table indices), and so it will map several different keys to the same index which could result in collisions.</p>
+<p>In another strategy from chaining, called open addressing. When a new entry has to be inserted, the buckets are examined, starting with the hashed-to slot and proceeding in some probe sequence, until an unoccupied slot is found. When searching for an entry, the buckets are scanned in the same sequence, until either the target record is found, or an unused array slot is found, which indicates that there is no such key in the table.The name &quot;open addressing&quot; refers to the fact that the location (&quot;address&quot;) of the item is not determined by its hash value.</p>
+<p><a class="article-more-link" href="/python/day10/">Read More</a></p>
+      
+    </div>
+  </div>
+  
+</article>
+
+<article id="post-day09" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/python/day09/" class="article-date">
+  <time class="dt-published" datetime="2026-08-19T00:00:00.000Z" itemprop="datePublished">2026-08-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/python/day09/">Day 09 - Hash Table - Chaining / 雜湊表：分離鏈結法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+<p>In computing, a hash table (hash map) is a data structure which implements an associative array abstract data type, a structure that can map keys to values. A hash table uses a hash function to compute an index into an array of buckets or slots, from which the desired value can be found</p>
+<p>Ideally, the hash function will assign each key to a unique bucket, but most hash table designs employ an imperfect hash function, which might cause hash collisions where the hash function generates the same index for more than one key. Such collisions must be accommodated in some way.</p>
+<p><a class="article-more-link" href="/python/day09/">Read More</a></p>
+      
+    </div>
+  </div>
+  
+</article>
+
+<article id="post-day08" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/python/day08/" class="article-date">
+  <time class="dt-published" datetime="2026-08-18T00:00:00.000Z" itemprop="datePublished">2026-08-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/python/day08/">Day 08 - Word Break / Word Break</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+<p>Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be segmented into a space-separated sequence of one or more dictionary words.</p>
+<p>Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, add spaces in s to construct a sentence where each word is a valid dictionary word. Return all such possible sentences.</p>
+<p><a class="article-more-link" href="/python/day08/">Read More</a></p>
+      
+    </div>
+  </div>
+  
+</article>
+
+<article id="post-day07" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/python/day07/" class="article-date">
+  <time class="dt-published" datetime="2026-08-17T00:00:00.000Z" itemprop="datePublished">2026-08-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/python/day07/">Day 07 - list, tuple, dict and set / list、tuple、dict 與 set</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+<p>Today I will introduce some convinient tools in Python. There is no complicated algorithm and data structure. Take it easy!</p>
+<p><a class="article-more-link" href="/python/day07/">Read More</a></p>
+      
+    </div>
+  </div>
+  
+</article>
+
+<article id="post-day06" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/python/day06/" class="article-date">
+  <time class="dt-published" datetime="2026-08-16T00:00:00.000Z" itemprop="datePublished">2026-08-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/python/day06/">Day 06 - Binomial Heap / 二項堆積</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+<p>A binomial heap is implemented as a set of binomial trees (compare with a binary heap, which has a shape of a single binary tree), which are defined recursively as follows:</p>
+<p><a class="article-more-link" href="/python/day06/">Read More</a></p>
+      
+    </div>
+  </div>
+  
+</article>
+
+<article id="post-day05" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/python/day05/" class="article-date">
+  <time class="dt-published" datetime="2026-08-15T00:00:00.000Z" itemprop="datePublished">2026-08-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/python/day05/">Day 05 - Binary Heap (Priority Queue) / 二元堆積（優先佇列）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+<p>In computer science, a heap is a specialized tree-based data structure that satisfies the heap property: if P is a parent node of C, then the key (the value) of P is either greater than or equal to (in a max heap) or less than or equal to (in a min heap) the key of C. The node at the &quot;top&quot; of the heap (with no parents) is called the root node.</p>
+<p>The datas of binary heap are actually stored a array list like this: !<a target="_blank" rel="noopener" href="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Heap-as-array.svg/603px-Heap-as-array.svg.png">Heap</a></p>
+<p><a class="article-more-link" href="/python/day05/">Read More</a></p>
+      
+    </div>
+  </div>
+  
+</article>
+
+<article id="post-day04" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/python/day04/" class="article-date">
+  <time class="dt-published" datetime="2026-08-14T00:00:00.000Z" itemprop="datePublished">2026-08-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/python/day04/">Day 04 - Binary Search Tree / 二元搜尋樹</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+<p>Yesterday(day 03) we mentioned BST. Today, let&#x27;s go deeper.</p>
+<p>I write the code of main function in TreeNode class, different from code in <em>day03</em> which in BinarySearchTree class. Both are acceptable.</p>
+<p><a class="article-more-link" href="/python/day04/">Read More</a></p>
+      
+    </div>
+  </div>
+  
+</article>
+
+<article id="post-day03" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/python/day03/" class="article-date">
+  <time class="dt-published" datetime="2026-08-13T00:00:00.000Z" itemprop="datePublished">2026-08-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/python/day03/">Day 03 - Tree / 樹</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+<p>In computer science, a tree is a widely used abstract data type (ADT) that simulates a hierarchical tree structure, with a root value and subtrees of children with a parent node, represented as a set of linked nodes.</p>
+<p>A binary search tree is a rooted binary tree, whose internal nodes each store a key (and optionally, an associated value) and each have two distinguished sub-trees, commonly denoted left and right. The tree additionally satisfies the binary search property, which states that the key in each node must be greater than or equal to any key stored in the left sub-tree, and less than or equal to any key stored in the right sub-tree. The leaves (final nodes) of the tree contain no key and have no structure to distinguish them from one another.</p>
+<p><a class="article-more-link" href="/python/day03/">Read More</a></p>
+      
+    </div>
+  </div>
+  
+</article>
+
+<article id="post-day02" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/python/day02/" class="article-date">
+  <time class="dt-published" datetime="2026-08-12T00:00:00.000Z" itemprop="datePublished">2026-08-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/python/day02/">Day 02 - Stack and Queue / 堆疊與佇列</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+<p>In computer science, a stack is an abstract data type that serves as a collection of elements, with two principal operations:</p>
+<p>In computer science, a queue is a particular kind of abstract data type or collection in which the entities in the collection are kept in order and the principal (or only) operations on the collection are the addition of entities to the rear terminal position, known as <strong>enqueue</strong>, and removal of entities from the front terminal position, known as <strong>dequeue</strong>.</p>
+<p><a class="article-more-link" href="/python/day02/">Read More</a></p>
+      
+    </div>
+  </div>
+  
+</article>
+
+<article id="post-day01" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/python/day01/" class="article-date">
+  <time class="dt-published" datetime="2026-08-11T00:00:00.000Z" itemprop="datePublished">2026-08-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/python/day01/">Day 01 - Linked List / 鏈結串列</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+<p>Linked list has two key things to note:</p>
+<ol><li>A linked list consists of <strong>nodes</strong>.</li><li>Each node consists of a <strong>value</strong> and a <strong>pointer</strong> to another node.</li></ol>
+<p>鏈結串列有兩點值得注意:</p>
+<ol><li>一個鏈結串列由<strong>節點</strong>組成</li><li>每個節點由<strong>值</strong>和指向下個節點的<strong>指標</strong>組成</li></ol>
+<p><a class="article-more-link" href="/python/day01/">Read More</a></p>
+      
+    </div>
+  </div>
+  
+</article>
+
+<article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/12/28/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2022-12-28T12:38:51.711Z" itemprop="datePublished">2022-12-28</time>
+  <time class="dt-published" datetime="2022-12-28T00:00:00.000Z" itemprop="datePublished">2022-12-28</time>
 </a>
     
   </div>
@@ -93,35 +773,13 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
+<p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post.</p>
+<p><a class="article-more-link" href="/2022/12/28/hello-world/">Read More</a></p>
       
     </div>
-    <footer class="article-footer">
-      <a data-url="https://kingrei.github.io/2022/12/28/hello-world/" data-id="clc8h77ap0000fcihfg2fgrrd" data-title="Hello World" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
   </div>
   
 </article>
-
-
-
-  
 
 
 </section>
@@ -140,7 +798,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/08/">August 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li></ul>
     </div>
   </div>
 
@@ -153,7 +811,23 @@
       <ul>
         
           <li>
-            <a href="/2022/12/28/hello-world/">Hello World</a>
+            <a href="/python/day21/">Day 21 - Selection and top-k - from quickselect to the kernels inside an LLM / 選擇問題與 Top-K：從 quickselect 到 GPU kernel</a>
+          </li>
+        
+          <li>
+            <a href="/python/day20/">Day 20 - Divide and conquer, twice - merge sort, quick sort, and going parallel / 分治排序：merge sort、quick sort，以及它們的平行版</a>
+          </li>
+        
+          <li>
+            <a href="/python/day19/">Day 19 - A* - letting the search carry a guess / A*：讓搜尋帶著一個猜測往前走</a>
+          </li>
+        
+          <li>
+            <a href="/python/day18/">Day 18 - Tarjan - one DFS with timestamps, three structures / Tarjan：一個 DFS 時間戳，三種結構</a>
+          </li>
+        
+          <li>
+            <a href="/python/day17/">Day 17 - Negative weights and all pairs - Bellman-Ford, SPFA, Floyd-Warshall / 負權與全點對：Bellman-Ford / SPFA / Floyd-Warshall</a>
           </li>
         
       </ul>
@@ -169,7 +843,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       
-      &copy; 2022 Eric King<br>
+      &copy; 2026 Eric King<br>
       Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
@@ -179,6 +853,8 @@
     <nav id="mobile-nav">
   
     <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/python/" class="mobile-nav-link">100 Days of Python</a>
   
     <a href="/archives" class="mobile-nav-link">Archives</a>
   
@@ -197,7 +873,6 @@
 
 
 <script src="/js/script.js"></script>
-
 
 
 

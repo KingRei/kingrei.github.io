@@ -3,15 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: December 2022 | 理工金哥哥</title>
+  <title>Day 14 - Union-Find / 併查集 | 理工金哥哥</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Archives: December 2022">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Archives: December 2022">
-<meta property="og:url" content="https://kingrei.github.io/archives/2022/12/index.html">
+  <meta name="description" content="昨天的拓樸排序需要先拿到整張圖。今天這個結構幾乎什麼都不需要：它不存邊、不走路徑， 只回答一個問題——這兩個東西是不是同一組？——而且回答的時間幾乎是常數。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Day 14 - Union-Find / 併查集">
+<meta property="og:url" content="https://kingrei.github.io/python/day14/index.html">
 <meta property="og:site_name" content="理工金哥哥">
-<meta property="og:description" content="Archives: December 2022">
+<meta property="og:description" content="昨天的拓樸排序需要先拿到整張圖。今天這個結構幾乎什麼都不需要：它不存邊、不走路徑， 只回答一個問題——這兩個東西是不是同一組？——而且回答的時間幾乎是常數。">
 <meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-24T00:00:00.000Z">
+<meta property="article:modified_time" content="2026-08-24T00:00:00.000Z">
+<meta property="article:author" content="Eric King">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="理工金哥哥" type="application/atom+xml">
@@ -96,36 +99,45 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/12/28/hello-world/" class="archive-article-date">
-  <time class="dt-published" datetime="2022-12-28T00:00:00.000Z" itemprop="datePublished">Dec 28</time>
+        <section id="main"><article id="post-day14" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/python/day14/" class="article-date">
+  <time class="dt-published" datetime="2026-08-24T00:00:00.000Z" itemprop="datePublished">2026-08-24</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/12/28/hello-world/">Hello World</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      Day 14 - Union-Find / 併查集
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+<p>昨天的拓樸排序需要先拿到整張圖。今天這個結構幾乎什麼都不需要：它不存邊、不走路徑， 只回答一個問題——<strong>這兩個東西是不是同一組？</strong>——而且回答的時間幾乎是常數。</p>
+<p>聽起來窄到沒什麼用，但你會發現這常常是你唯一想問的問題。這兩個帳號是不是同一個人？ 那條線斷掉之後還剩幾個獨立網路？加上這條邊會不會形成環？哪些像素屬於同一個色塊？</p>
+<div class="demo-embed">
+<div class="demo-bar"><b>互動示範</b><span>拖曳、逐步播放，右上角可切換 中文 / English</span><span class="sp"></span><a href="demo.html" target="_blank" rel="noopener">在新分頁全螢幕開啟 &#8599;</a></div>
+<iframe src="demo.html" title="Day 14 - Union-Find / 併查集" loading="lazy"></iframe>
+</div>
+<div class="post-links"><a target="_blank" rel="noopener" href="https://github.com/KingRei/100DaysPython/tree/master/day%2014%20-%20union%20find">原始碼與完整筆記 (GitHub)</a><a target="_blank" rel="noopener" href="https://medium.com/100-days-of-python/day-14-union-find">Medium 文章</a></div>
+<div class="post-nav"><span>&#8592; <a href="/python/day13/">Day 13 - Topological Sort / 拓樸排序</a></span><span style="text-align:right"><a href="/python/day15/">Day 15 - Minimum Spanning Tree - Kruskal / 最小生成樹：Kruskal</a> &#8594;</span></div>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kingrei.github.io/python/day14/" data-id="100days-day14" data-title="Day 14 - Union-Find / 併查集" class="article-share-link">Share</a>
+      
+    </footer>
   </div>
-</article>
-    </div></section>
   
+</article>
 
 
 </section>

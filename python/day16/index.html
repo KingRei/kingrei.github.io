@@ -3,15 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: December 2022 | 理工金哥哥</title>
+  <title>Day 16 - Prim and Dijkstra - one heap-greedy skeleton / Prim 與 Dijkstra：同一套 heap greedy 骨架 | 理工金哥哥</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Archives: December 2022">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Archives: December 2022">
-<meta property="og:url" content="https://kingrei.github.io/archives/2022/12/index.html">
+  <meta name="description" content="這兩個演算法我當年是分開學的。Prim 在「最小生成樹」那一章，Dijkstra 在「最短路徑」那一章，中間隔了好幾週， 課本也沒有暗示它們有什麼關係。直到某次我把它們前後寫在同一個檔案裡，才發現 diff 只有四個字元。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Day 16 - Prim and Dijkstra - one heap-greedy skeleton / Prim 與 Dijkstra：同一套 heap greedy 骨架">
+<meta property="og:url" content="https://kingrei.github.io/python/day16/index.html">
 <meta property="og:site_name" content="理工金哥哥">
-<meta property="og:description" content="Archives: December 2022">
+<meta property="og:description" content="這兩個演算法我當年是分開學的。Prim 在「最小生成樹」那一章，Dijkstra 在「最短路徑」那一章，中間隔了好幾週， 課本也沒有暗示它們有什麼關係。直到某次我把它們前後寫在同一個檔案裡，才發現 diff 只有四個字元。">
 <meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-26T00:00:00.000Z">
+<meta property="article:modified_time" content="2026-08-26T00:00:00.000Z">
+<meta property="article:author" content="Eric King">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="理工金哥哥" type="application/atom+xml">
@@ -96,36 +99,46 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/12/28/hello-world/" class="archive-article-date">
-  <time class="dt-published" datetime="2022-12-28T00:00:00.000Z" itemprop="datePublished">Dec 28</time>
+        <section id="main"><article id="post-day16" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/python/day16/" class="article-date">
+  <time class="dt-published" datetime="2026-08-26T00:00:00.000Z" itemprop="datePublished">2026-08-26</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/12/28/hello-world/">Hello World</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      Day 16 - Prim and Dijkstra - one heap-greedy skeleton / Prim 與 Dijkstra：同一套 heap greedy 骨架
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+<p>這兩個演算法我當年是分開學的。Prim 在「最小生成樹」那一章，Dijkstra 在「最短路徑」那一章，中間隔了好幾週， 課本也沒有暗示它們有什麼關係。直到某次我把它們前後寫在同一個檔案裡，才發現 diff 只有四個字元。</p>
+<p>先講結論再講原理：<strong>一個函式、一個 heap、一個迴圈，用一個 <code>key</code> 參數決定你拿到的是哪一個演算法。</strong> <code>key</code> 比的是「這一條邊多重」就是 Prim，比的是「從起點走過來總共多長」就是 Dijkstra。 其他部分——heap、<code>done</code> 陣列、放鬆（relax）、複雜度——完全一樣。</p>
+<p>昨天的 <a href="https://medium.com/100-days-of-python">Kruskal</a> 是把所有邊排序一次，再用 Union-Find 過濾。 Prim 從另一個方向解同一個問題，而正是這個方向的改變，讓 Dijkstra 免費掉出來。</p>
+<div class="demo-embed">
+<div class="demo-bar"><b>互動示範</b><span>拖曳、逐步播放，右上角可切換 中文 / English</span><span class="sp"></span><a href="demo.html" target="_blank" rel="noopener">在新分頁全螢幕開啟 &#8599;</a></div>
+<iframe src="demo.html" title="Day 16 - Prim and Dijkstra - one heap-greedy skeleton / Prim 與 Dijkstra：同一套 heap greedy 骨架" loading="lazy"></iframe>
+</div>
+<div class="post-links"><a target="_blank" rel="noopener" href="https://github.com/KingRei/100DaysPython/tree/master/day%2016%20-%20prim%20and%20dijkstra">原始碼與完整筆記 (GitHub)</a><a target="_blank" rel="noopener" href="https://medium.com/100-days-of-python">Medium 文章</a></div>
+<div class="post-nav"><span>&#8592; <a href="/python/day15/">Day 15 - Minimum Spanning Tree - Kruskal / 最小生成樹：Kruskal</a></span><span style="text-align:right"><a href="/python/day17/">Day 17 - Negative weights and all pairs - Bellman-Ford, SPFA, Floyd-Warshall / 負權與全點對：Bellman-Ford / SPFA / Floyd-Warshall</a> &#8594;</span></div>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kingrei.github.io/python/day16/" data-id="100days-day16" data-title="Day 16 - Prim and Dijkstra - one heap-greedy skeleton / Prim 與 Dijkstra：同一套 heap greedy 骨架" class="article-share-link">Share</a>
+      
+    </footer>
   </div>
-</article>
-    </div></section>
   
+</article>
 
 
 </section>

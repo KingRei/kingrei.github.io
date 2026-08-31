@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>100 Days of Python | 理工金哥哥</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="100 Days of Python：資料結構與演算法，每一天一篇筆記加一個可以動手玩的互動示範。目前 21 天，從 linked list 一路走到 GPU 上的 top-k kernel。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="100 Days of Python">
+<meta property="og:url" content="https://kingrei.github.io/python/index.html">
+<meta property="og:site_name" content="理工金哥哥">
+<meta property="og:description" content="100 Days of Python：資料結構與演算法，每一天一篇筆記加一個可以動手玩的互動示範。目前 21 天，從 linked list 一路走到 GPU 上的 top-k kernel。">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="理工金哥哥" type="application/atom+xml">
+  
+  
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<style>
+.demo-embed{margin:1.8em 0;border:1px solid #ddd;border-radius:6px;overflow:hidden;background:#04121c}
+.demo-embed iframe{display:block;width:100%;height:82vh;min-height:560px;border:0}
+.demo-bar{display:flex;align-items:center;gap:.8em;flex-wrap:wrap;
+  padding:.55em .9em;background:#062434;color:#8fa3ac;font-size:14px;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+.demo-bar b{color:#dff2f5;font-weight:600}
+.demo-bar .sp{flex:1}
+.demo-bar a{color:#3fe0dd;text-decoration:none;border:1px solid #0a6b74;
+  border-radius:999px;padding:.2em .8em;white-space:nowrap}
+.demo-bar a:hover{background:#0a6b74;color:#fff}
+.post-links{margin:1.6em 0;padding:.2em 0;font-size:15px}
+.post-links a{margin-right:1.2em;white-space:nowrap}
+.post-nav{display:flex;justify-content:space-between;gap:1em;margin:2.4em 0 0;
+  padding-top:1em;border-top:1px solid #ddd;font-size:15px}
+.post-nav span{max-width:48%}
+.day-list{list-style:none;margin:0;padding:0}
+.day-list li{padding:.85em 0;border-bottom:1px solid #eee}
+.day-list .n{display:inline-block;min-width:4.2em;color:#999;font-size:13px;
+  letter-spacing:1px;text-transform:uppercase}
+.day-list .t{font-weight:600}
+.day-list .s{display:block;margin-top:.3em;color:#666;font-size:14px;line-height:1.55}
+@media(max-width:700px){.demo-embed iframe{height:70vh;min-height:460px}}
+</style>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">理工金哥哥</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/python/">100 Days of Python</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://kingrei.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article class="article article-type-page">
+  <div class="article-inner">
+    <header class="article-header">
+    <h1 class="article-title">100 Days of Python</h1>
+    </header>
+    <div class="article-entry">
+<p>資料結構與演算法，一天一個主題。每一篇都附一個<strong>單檔、離線可用</strong>的互動示範
+——直接在頁面上一步一步看演算法怎麼跑，右上角可以切換 中文 / English。</p>
+<p>目前累積 21 天，從 linked list 一路走到 LLM 取樣時真正在跑的 GPU top-k kernel。
+原始碼與 Jupyter notebook 都在 <a target="_blank" rel="noopener" href="https://github.com/KingRei/100DaysPython">GitHub</a>。</p>
+<ul class="day-list">
+<li><a href="/python/day01/"><span class="n">Day 01</span><span class="t">Linked List / 鏈結串列</span></a><span class="s">Animates push-front, search, deletion and the doubly linked unlink step by step.</span></li>
+<li><a href="/python/day02/"><span class="n">Day 02</span><span class="t">Stack and Queue / 堆疊與佇列</span></a><span class="s">Animates push/pop, deque vs list.pop(0), and LeetCode 20 bracket matching step by step.</span></li>
+<li><a href="/python/day03/"><span class="n">Day 03</span><span class="t">Tree / 樹</span></a><span class="s">Animates preorder/inorder/postorder DFS, level-order BFS and recursive height step by step.</span></li>
+<li><a href="/python/day04/"><span class="n">Day 04</span><span class="t">Binary Search Tree / 二元搜尋樹</span></a><span class="s">Animates BST insertion, search hits and misses, and all three deletion cases step by step.</span></li>
+<li><a href="/python/day05/"><span class="n">Day 05</span><span class="t">Binary Heap (Priority Queue) / 二元堆積（優先佇列）</span></a><span class="s">Animates percolate-up insertion, extract-min, O(n) heapify and heap sort step by step.</span></li>
+<li><a href="/python/day06/"><span class="n">Day 06</span><span class="t">Binomial Heap / 二項堆積</span></a><span class="s">Animates tree linking, binary-carry merging and extract-min step by step.</span></li>
+<li><a href="/python/day07/"><span class="n">Day 07</span><span class="t">list, tuple, dict and set / list、tuple、dict 與 set</span></a><span class="s">Animates list contiguity, tuple immutability, dict buckets and set operations step by step.</span></li>
+<li><a href="/python/day08/"><span class="n">Day 08</span><span class="t">Word Break / Word Break</span></a><span class="s">Animates the 1-D DP, the memoised recursion (including a failing string) and LeetCode 140 step by step.</span></li>
+<li><a href="/python/day09/"><span class="n">Day 09</span><span class="t">Hash Table - Chaining / 雜湊表：分離鏈結法</span></a><span class="s">Animates hashing into buckets, chain lookup, deletion and resizing step by step.</span></li>
+<li><a href="/python/day10/"><span class="n">Day 10</span><span class="t">Hash Table - Open Addressing / 雜湊表：開放定址法</span></a><span class="s">Animates linear probing, clustering, the tombstone problem and lookup step by step.</span></li>
+<li><a href="/python/day11/"><span class="n">Day 11</span><span class="t">Graph - turning relationships into a data structure / 圖：把「關係」變成資料結構</span></a><span class="s">Animates add_vertex/add_edge, adjacency list vs matrix and degree centrality step by step.</span></li>
+<li><a href="/python/day12/"><span class="n">Day 12</span><span class="t">Graph Traversal / BFS 與 DFS</span></a><span class="s">Animates BFS ring by ring, shortest-path reconstruction, DFS and LeetCode 200 step by step.</span></li>
+<li><a href="/python/day13/"><span class="n">Day 13</span><span class="t">Topological Sort / 拓樸排序</span></a><span class="s">Animates Kahn, the DFS post-order, cycle detection and LeetCode 207/210 step by step.</span></li>
+<li><a href="/python/day14/"><span class="n">Day 14</span><span class="t">Union-Find / 併查集</span></a><span class="s">Animates union by rank, path compression, the chain a naive union builds, and LeetCode 547 step by step.</span></li>
+<li><a href="/python/day15/"><span class="n">Day 15</span><span class="t">Minimum Spanning Tree - Kruskal / 最小生成樹：Kruskal</span></a><span class="s">Animates the sorted edge scan, what happens when the graph is disconnected, the cut and cycle properties that make the greedy choice safe, and LeetCode 1584 step by step.</span></li>
+<li><a href="/python/day16/"><span class="n">Day 16</span><span class="t">Prim and Dijkstra - one heap-greedy skeleton / Prim 與 Dijkstra：同一套 heap greedy 骨架</span></a><span class="s">Animates the shared loop with both keys side by side, shows why the minimum spanning tree and the shortest-path tree are genuinely different trees, breaks Dijkstra with a single negative edge, and walks through LeetCode …</span></li>
+<li><a href="/python/day17/"><span class="n">Day 17</span><span class="t">Negative weights and all pairs - Bellman-Ford, SPFA, Floyd-Warshall / 負權與全點對：Bellman-Ford / SPFA / Floyd-Warshall</span></a><span class="s">Animates Bellman-Ford round by round, contrasts it with SPFA&#x27;s work list, detects a negative cycle with one extra round, runs Floyd-Warshall stage by stage (including what happens when the loops are nested in the wrong o…</span></li>
+<li><a href="/python/day18/"><span class="n">Day 18</span><span class="t">Tarjan - one DFS with timestamps, three structures / Tarjan：一個 DFS 時間戳，三種結構</span></a><span class="s">Animates the `disc`/`low` bookkeeping edge by edge, shows how the same run answers bridges and articulation points, demonstrates the parallel-edge trap that makes the textbook `if v == parent` version report a bridge tha…</span></li>
+<li><a href="/python/day19/"><span class="n">Day 19</span><span class="t">A* - letting the search carry a guess / A*：讓搜尋帶著一個猜測往前走</span></a><span class="s">Runs the *same* implementation with h = 0 and with a Manhattan heuristic side by side, shows an inflated heuristic walking confidently into the expensive part of the map, animates delta-stepping at delta = 1, 4 and 99 so…</span></li>
+<li><a href="/python/day20/"><span class="n">Day 20</span><span class="t">Divide and conquer, twice - merge sort, quick sort, and going parallel / 分治排序：merge sort、quick sort，以及它們的平行版</span></a><span class="s">Animates a merge sort counting its inversions as it goes, a Lomuto partition placing a pivot for good, the two inputs that turn quick sort into an n^2 algorithm, the three-way partition that fixes the one a random pivot …</span></li>
+<li><a href="/python/day21/"><span class="n">Day 21</span><span class="t">Selection and top-k - from quickselect to the kernels inside an LLM / 選擇問題與 Top-K：從 quickselect 到 GPU kernel</span></a><span class="s">Animates a three-way quickselect throwing half the array away each round, a radix select narrowing a row with nothing but counters, the filtered single-block kernel squeezing 14 scores into 4 slots of shared memory, four…</span></li>
+</ul>
+    </div>
+  </div>
+</article>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/08/">August 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/python/day21/">Day 21 - Selection and top-k - from quickselect to the kernels inside an LLM / 選擇問題與 Top-K：從 quickselect 到 GPU kernel</a>
+          </li>
+        
+          <li>
+            <a href="/python/day20/">Day 20 - Divide and conquer, twice - merge sort, quick sort, and going parallel / 分治排序：merge sort、quick sort，以及它們的平行版</a>
+          </li>
+        
+          <li>
+            <a href="/python/day19/">Day 19 - A* - letting the search carry a guess / A*：讓搜尋帶著一個猜測往前走</a>
+          </li>
+        
+          <li>
+            <a href="/python/day18/">Day 18 - Tarjan - one DFS with timestamps, three structures / Tarjan：一個 DFS 時間戳，三種結構</a>
+          </li>
+        
+          <li>
+            <a href="/python/day17/">Day 17 - Negative weights and all pairs - Bellman-Ford, SPFA, Floyd-Warshall / 負權與全點對：Bellman-Ford / SPFA / Floyd-Warshall</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 Eric King<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/python/" class="mobile-nav-link">100 Days of Python</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

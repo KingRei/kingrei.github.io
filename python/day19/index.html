@@ -3,15 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: December 2022 | 理工金哥哥</title>
+  <title>Day 19 - A* - letting the search carry a guess / A*：讓搜尋帶著一個猜測往前走 | 理工金哥哥</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Archives: December 2022">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Archives: December 2022">
-<meta property="og:url" content="https://kingrei.github.io/archives/2022/12/index.html">
+  <meta name="description" content="昨天的 Dijkstra 是個很公平的演算法。它不臆測、不預設立場，永遠挑「目前為止最便宜」的那一格 展開——不管那格在地圖的哪個方向，包括你正背對的那一邊。換成從城市這頭導航到那頭，這份公平 的意思就是：在找到第一條有用的路之前，先把半座城的巷子都翻過一遍。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Day 19 - A* - letting the search carry a guess / A*：讓搜尋帶著一個猜測往前走">
+<meta property="og:url" content="https://kingrei.github.io/python/day19/index.html">
 <meta property="og:site_name" content="理工金哥哥">
-<meta property="og:description" content="Archives: December 2022">
+<meta property="og:description" content="昨天的 Dijkstra 是個很公平的演算法。它不臆測、不預設立場，永遠挑「目前為止最便宜」的那一格 展開——不管那格在地圖的哪個方向，包括你正背對的那一邊。換成從城市這頭導航到那頭，這份公平 的意思就是：在找到第一條有用的路之前，先把半座城的巷子都翻過一遍。">
 <meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-29T00:00:00.000Z">
+<meta property="article:modified_time" content="2026-08-29T00:00:00.000Z">
+<meta property="article:author" content="Eric King">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="理工金哥哥" type="application/atom+xml">
@@ -96,36 +99,45 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/12/28/hello-world/" class="archive-article-date">
-  <time class="dt-published" datetime="2022-12-28T00:00:00.000Z" itemprop="datePublished">Dec 28</time>
+        <section id="main"><article id="post-day19" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/python/day19/" class="article-date">
+  <time class="dt-published" datetime="2026-08-29T00:00:00.000Z" itemprop="datePublished">2026-08-29</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/12/28/hello-world/">Hello World</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      Day 19 - A* - letting the search carry a guess / A*：讓搜尋帶著一個猜測往前走
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+<p>昨天的 Dijkstra 是個很公平的演算法。它不臆測、不預設立場，永遠挑「目前為止最便宜」的那一格 展開——不管那格在地圖的哪個方向，包括你正背對的那一邊。換成從城市這頭導航到那頭，這份公平 的意思就是：在找到第一條有用的路之前，先把半座城的巷子都翻過一遍。</p>
+<p>但你其實知道一件 Dijkstra 死也不肯用的事：終點大概在哪個方向。A* 就是<strong>「讓搜尋把這件事用起來」之後的樣子</strong>。</p>
+<div class="demo-embed">
+<div class="demo-bar"><b>互動示範</b><span>拖曳、逐步播放，右上角可切換 中文 / English</span><span class="sp"></span><a href="demo.html" target="_blank" rel="noopener">在新分頁全螢幕開啟 &#8599;</a></div>
+<iframe src="demo.html" title="Day 19 - A* - letting the search carry a guess / A*：讓搜尋帶著一個猜測往前走" loading="lazy"></iframe>
+</div>
+<div class="post-links"><a target="_blank" rel="noopener" href="https://github.com/KingRei/100DaysPython/tree/master/day%2019%20-%20a%20star%20and%20parallel%20search">原始碼與完整筆記 (GitHub)</a><a target="_blank" rel="noopener" href="https://medium.com/100-days-of-python">Medium 文章</a></div>
+<div class="post-nav"><span>&#8592; <a href="/python/day18/">Day 18 - Tarjan - one DFS with timestamps, three structures / Tarjan：一個 DFS 時間戳，三種結構</a></span><span style="text-align:right"><a href="/python/day20/">Day 20 - Divide and conquer, twice - merge sort, quick sort, and going parallel / 分治排序：merge sort、quick sort，以及它們的平行版</a> &#8594;</span></div>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kingrei.github.io/python/day19/" data-id="100days-day19" data-title="Day 19 - A* - letting the search carry a guess / A*：讓搜尋帶著一個猜測往前走" class="article-share-link">Share</a>
+      
+    </footer>
   </div>
-</article>
-    </div></section>
   
+</article>
 
 
 </section>

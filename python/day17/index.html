@@ -3,15 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: December 2022 | 理工金哥哥</title>
+  <title>Day 17 - Negative weights and all pairs - Bellman-Ford, SPFA, Floyd-Warshall / 負權與全點對：Bellman-Ford / SPFA / Floyd-Warshall | 理工金哥哥</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Archives: December 2022">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Archives: December 2022">
-<meta property="og:url" content="https://kingrei.github.io/archives/2022/12/index.html">
+  <meta name="description" content="昨天的 heap_greedy 骨架裡藏了一句沒有明講的理由：任何通往這個節點的其他路線，都必須經過 還留在 heap 裡的某個節點，而那個節點的距離已經不小於它，再多接幾條邊只會更長。 Dijkstra 的所有保證都建立在這句話上，而這句話建立在一個前提上——多加一條邊，不會讓路徑變短。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Day 17 - Negative weights and all pairs - Bellman-Ford, SPFA, Floyd-Warshall / 負權與全點對：Bellman-Ford / SPFA / Floyd-Warshall">
+<meta property="og:url" content="https://kingrei.github.io/python/day17/index.html">
 <meta property="og:site_name" content="理工金哥哥">
-<meta property="og:description" content="Archives: December 2022">
+<meta property="og:description" content="昨天的 heap_greedy 骨架裡藏了一句沒有明講的理由：任何通往這個節點的其他路線，都必須經過 還留在 heap 裡的某個節點，而那個節點的距離已經不小於它，再多接幾條邊只會更長。 Dijkstra 的所有保證都建立在這句話上，而這句話建立在一個前提上——多加一條邊，不會讓路徑變短。">
 <meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-27T00:00:00.000Z">
+<meta property="article:modified_time" content="2026-08-27T00:00:00.000Z">
+<meta property="article:author" content="Eric King">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="理工金哥哥" type="application/atom+xml">
@@ -96,36 +99,46 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/12/28/hello-world/" class="archive-article-date">
-  <time class="dt-published" datetime="2022-12-28T00:00:00.000Z" itemprop="datePublished">Dec 28</time>
+        <section id="main"><article id="post-day17" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/python/day17/" class="article-date">
+  <time class="dt-published" datetime="2026-08-27T00:00:00.000Z" itemprop="datePublished">2026-08-27</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/12/28/hello-world/">Hello World</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      Day 17 - Negative weights and all pairs - Bellman-Ford, SPFA, Floyd-Warshall / 負權與全點對：Bellman-Ford / SPFA / Floyd-Warshall
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+<p>昨天的 <code>heap_greedy</code> 骨架裡藏了一句沒有明講的理由：<em>任何通往這個節點的其他路線，都必須經過 還留在 heap 裡的某個節點，而那個節點的距離已經不小於它，再多接幾條邊只會更長。</em> Dijkstra 的所有保證都建立在這句話上，而這句話建立在一個前提上——多加一條邊，不會讓路徑變短。</p>
+<p>只要權重可以是負的，這句話就不成立了。而真正麻煩的是：<strong>Dijkstra 不會告訴你。</strong> 沒有例外、沒有無窮迴圈、沒有警告，它就是回傳一個長得跟答案一模一樣的數字。</p>
+<p>三個節點的圖，邊是 <code>A-&gt;B = 5</code>、<code>A-&gt;C = 2</code>、<code>B-&gt;C = -10</code>，Dijkstra 給你 <code>C = 2</code>。 正確答案是走 B 的 <code>-5</code>。今天整篇文章都是為了處理這件事。</p>
+<div class="demo-embed">
+<div class="demo-bar"><b>互動示範</b><span>拖曳、逐步播放，右上角可切換 中文 / English</span><span class="sp"></span><a href="demo.html" target="_blank" rel="noopener">在新分頁全螢幕開啟 &#8599;</a></div>
+<iframe src="demo.html" title="Day 17 - Negative weights and all pairs - Bellman-Ford, SPFA, Floyd-Warshall / 負權與全點對：Bellman-Ford / SPFA / Floyd-Warshall" loading="lazy"></iframe>
+</div>
+<div class="post-links"><a target="_blank" rel="noopener" href="https://github.com/KingRei/100DaysPython/tree/master/day%2017%20-%20bellman%20ford%20and%20floyd%20warshall">原始碼與完整筆記 (GitHub)</a><a target="_blank" rel="noopener" href="https://medium.com/100-days-of-python">Medium 文章</a></div>
+<div class="post-nav"><span>&#8592; <a href="/python/day16/">Day 16 - Prim and Dijkstra - one heap-greedy skeleton / Prim 與 Dijkstra：同一套 heap greedy 骨架</a></span><span style="text-align:right"><a href="/python/day18/">Day 18 - Tarjan - one DFS with timestamps, three structures / Tarjan：一個 DFS 時間戳，三種結構</a> &#8594;</span></div>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kingrei.github.io/python/day17/" data-id="100days-day17" data-title="Day 17 - Negative weights and all pairs - Bellman-Ford, SPFA, Floyd-Warshall / 負權與全點對：Bellman-Ford / SPFA / Floyd-Warshall" class="article-share-link">Share</a>
+      
+    </footer>
   </div>
-</article>
-    </div></section>
   
+</article>
 
 
 </section>
