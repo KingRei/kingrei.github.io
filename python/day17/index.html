@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Day 17 - Negative weights and all pairs - Bellman-Ford, SPFA, Floyd-Warshall / 負權與全點對：Bellman-Ford / SPFA / Floyd-Warshall | 理工金哥哥</title>
+  <title>Python 100days - Day 17 - Negative weights and all pairs - Bellman-Ford, SPFA, Floyd-Warshall / 負權與全點對：Bellman-Ford / SPFA / Floyd-Warshall | 理工金哥哥</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="昨天的 heap_greedy 骨架裡藏了一句沒有明講的理由：任何通往這個節點的其他路線，都必須經過 還留在 heap 裡的某個節點，而那個節點的距離已經不小於它，再多接幾條邊只會更長。 Dijkstra 的所有保證都建立在這句話上，而這句話建立在一個前提上——多加一條邊，不會讓路徑變短。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Day 17 - Negative weights and all pairs - Bellman-Ford, SPFA, Floyd-Warshall / 負權與全點對：Bellman-Ford / SPFA / Floyd-Warshall">
+<meta property="og:title" content="Python 100days - Day 17 - Negative weights and all pairs - Bellman-Ford, SPFA, Floyd-Warshall / 負權與全點對：Bellman-Ford / SPFA / Floyd-Warshall">
 <meta property="og:url" content="https://kingrei.github.io/python/day17/index.html">
 <meta property="og:site_name" content="理工金哥哥">
 <meta property="og:description" content="昨天的 heap_greedy 骨架裡藏了一句沒有明講的理由：任何通往這個節點的其他路線，都必須經過 還留在 heap 裡的某個節點，而那個節點的距離已經不小於它，再多接幾條邊只會更長。 Dijkstra 的所有保證都建立在這句話上，而這句話建立在一個前提上——多加一條邊，不會讓路徑變短。">
@@ -113,7 +113,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      Day 17 - Negative weights and all pairs - Bellman-Ford, SPFA, Floyd-Warshall / 負權與全點對：Bellman-Ford / SPFA / Floyd-Warshall
+      Python 100days - Day 17 - Negative weights and all pairs - Bellman-Ford, SPFA, Floyd-Warshall / 負權與全點對：Bellman-Ford / SPFA / Floyd-Warshall
     </h1>
   
 
@@ -126,14 +126,14 @@
 <p>三個節點的圖，邊是 <code>A-&gt;B = 5</code>、<code>A-&gt;C = 2</code>、<code>B-&gt;C = -10</code>，Dijkstra 給你 <code>C = 2</code>。 正確答案是走 B 的 <code>-5</code>。今天整篇文章都是為了處理這件事。</p>
 <div class="demo-embed">
 <div class="demo-bar"><b>互動示範</b><span>拖曳、逐步播放，右上角可切換 中文 / English</span><span class="sp"></span><a href="demo.html" target="_blank" rel="noopener">在新分頁全螢幕開啟 &#8599;</a></div>
-<iframe src="demo.html" title="Day 17 - Negative weights and all pairs - Bellman-Ford, SPFA, Floyd-Warshall / 負權與全點對：Bellman-Ford / SPFA / Floyd-Warshall" loading="lazy"></iframe>
+<iframe src="demo.html" title="Python 100days - Day 17 - Negative weights and all pairs - Bellman-Ford, SPFA, Floyd-Warshall / 負權與全點對：Bellman-Ford / SPFA / Floyd-Warshall" loading="lazy"></iframe>
 </div>
 <div class="post-links"><a target="_blank" rel="noopener" href="https://github.com/KingRei/100DaysPython/tree/master/day%2017%20-%20bellman%20ford%20and%20floyd%20warshall">原始碼與完整筆記 (GitHub)</a><a target="_blank" rel="noopener" href="https://medium.com/100-days-of-python">Medium 文章</a></div>
 <div class="post-nav"><span>&#8592; <a href="/python/day16/">Day 16 - Prim and Dijkstra - one heap-greedy skeleton / Prim 與 Dijkstra：同一套 heap greedy 骨架</a></span><span style="text-align:right"><a href="/python/day18/">Day 18 - Tarjan - one DFS with timestamps, three structures / Tarjan：一個 DFS 時間戳，三種結構</a> &#8594;</span></div>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kingrei.github.io/python/day17/" data-id="100days-day17" data-title="Day 17 - Negative weights and all pairs - Bellman-Ford, SPFA, Floyd-Warshall / 負權與全點對：Bellman-Ford / SPFA / Floyd-Warshall" class="article-share-link">Share</a>
+      <a data-url="https://kingrei.github.io/python/day17/" data-id="100days-day17" data-title="Python 100days - Day 17 - Negative weights and all pairs - Bellman-Ford, SPFA, Floyd-Warshall / 負權與全點對：Bellman-Ford / SPFA / Floyd-Warshall" class="article-share-link">Share</a>
       
     </footer>
   </div>
@@ -170,23 +170,23 @@
       <ul>
         
           <li>
-            <a href="/python/day21/">Day 21 - Selection and top-k - from quickselect to the kernels inside an LLM / 選擇問題與 Top-K：從 quickselect 到 GPU kernel</a>
+            <a href="/python/day21/">Python 100days - Day 21 - Selection and top-k - from quickselect to the kernels inside an LLM / 選擇問題與 Top-K：從 quickselect 到 GPU kernel</a>
           </li>
         
           <li>
-            <a href="/python/day20/">Day 20 - Divide and conquer, twice - merge sort, quick sort, and going parallel / 分治排序：merge sort、quick sort，以及它們的平行版</a>
+            <a href="/python/day20/">Python 100days - Day 20 - Divide and conquer, twice - merge sort, quick sort, and going parallel / 分治排序：merge sort、quick sort，以及它們的平行版</a>
           </li>
         
           <li>
-            <a href="/python/day19/">Day 19 - A* - letting the search carry a guess / A*：讓搜尋帶著一個猜測往前走</a>
+            <a href="/python/day19/">Python 100days - Day 19 - A* - letting the search carry a guess / A*：讓搜尋帶著一個猜測往前走</a>
           </li>
         
           <li>
-            <a href="/python/day18/">Day 18 - Tarjan - one DFS with timestamps, three structures / Tarjan：一個 DFS 時間戳，三種結構</a>
+            <a href="/python/day18/">Python 100days - Day 18 - Tarjan - one DFS with timestamps, three structures / Tarjan：一個 DFS 時間戳，三種結構</a>
           </li>
         
           <li>
-            <a href="/python/day17/">Day 17 - Negative weights and all pairs - Bellman-Ford, SPFA, Floyd-Warshall / 負權與全點對：Bellman-Ford / SPFA / Floyd-Warshall</a>
+            <a href="/python/day17/">Python 100days - Day 17 - Negative weights and all pairs - Bellman-Ford, SPFA, Floyd-Warshall / 負權與全點對：Bellman-Ford / SPFA / Floyd-Warshall</a>
           </li>
         
       </ul>

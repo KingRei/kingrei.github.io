@@ -9,7 +9,7 @@
   <author><name>Eric King</name></author>
   <generator uri="https://hexo.io/" version="6.3.0">Hexo</generator>
   <entry>
-    <title>Day 21 - Selection and top-k - from quickselect to the kernels inside an LLM / 選擇問題與 Top-K：從 quickselect 到 GPU kernel</title>
+    <title>Python 100days - Day 21 - Selection and top-k - from quickselect to the kernels inside an LLM / 選擇問題與 Top-K：從 quickselect 到 GPU kernel</title>
     <link href="https://kingrei.github.io/python/day21/"/>
     <id>https://kingrei.github.io/python/day21/</id>
     <published>2026-08-31T00:00:00.000Z</published>
@@ -18,7 +18,7 @@
 <p>昨天講排序。今天要講的是：排序回答的問題，比我們真正問的大太多了。</p>]]></content>
   </entry>
   <entry>
-    <title>Day 20 - Divide and conquer, twice - merge sort, quick sort, and going parallel / 分治排序：merge sort、quick sort，以及它們的平行版</title>
+    <title>Python 100days - Day 20 - Divide and conquer, twice - merge sort, quick sort, and going parallel / 分治排序：merge sort、quick sort，以及它們的平行版</title>
     <link href="https://kingrei.github.io/python/day20/"/>
     <id>https://kingrei.github.io/python/day20/</id>
     <published>2026-08-30T00:00:00.000Z</published>
@@ -28,7 +28,7 @@
 <p>昨天的 A* 最後收在 work 與 depth：平行 BFS 的總工作量跟序列版一樣是 O(V+E)，但關鍵路徑短很多。 排序正好是把這個觀念操到底的地方。</p>]]></content>
   </entry>
   <entry>
-    <title>Day 19 - A* - letting the search carry a guess / A*：讓搜尋帶著一個猜測往前走</title>
+    <title>Python 100days - Day 19 - A* - letting the search carry a guess / A*：讓搜尋帶著一個猜測往前走</title>
     <link href="https://kingrei.github.io/python/day19/"/>
     <id>https://kingrei.github.io/python/day19/</id>
     <published>2026-08-29T00:00:00.000Z</published>
@@ -37,7 +37,7 @@
 <p>但你其實知道一件 Dijkstra 死也不肯用的事：終點大概在哪個方向。A* 就是<strong>「讓搜尋把這件事用起來」之後的樣子</strong>。</p>]]></content>
   </entry>
   <entry>
-    <title>Day 18 - Tarjan - one DFS with timestamps, three structures / Tarjan：一個 DFS 時間戳，三種結構</title>
+    <title>Python 100days - Day 18 - Tarjan - one DFS with timestamps, three structures / Tarjan：一個 DFS 時間戳，三種結構</title>
     <link href="https://kingrei.github.io/python/day18/"/>
     <id>https://kingrei.github.io/python/day18/</id>
     <published>2026-08-28T00:00:00.000Z</published>
@@ -47,7 +47,7 @@
 <p>Day 17 講的是「假設的代價」——Dijkstra 用「沒有負權」換速度，前提一破，它會安靜地給你錯的答案。 今天剛好相反：一個我們早就會的走訪，身上一直帶著我們沒去撿的資訊。</p>]]></content>
   </entry>
   <entry>
-    <title>Day 17 - Negative weights and all pairs - Bellman-Ford, SPFA, Floyd-Warshall / 負權與全點對：Bellman-Ford / SPFA / Floyd-Warshall</title>
+    <title>Python 100days - Day 17 - Negative weights and all pairs - Bellman-Ford, SPFA, Floyd-Warshall / 負權與全點對：Bellman-Ford / SPFA / Floyd-Warshall</title>
     <link href="https://kingrei.github.io/python/day17/"/>
     <id>https://kingrei.github.io/python/day17/</id>
     <published>2026-08-27T00:00:00.000Z</published>
@@ -57,7 +57,7 @@
 <p>三個節點的圖，邊是 <code>A-&gt;B = 5</code>、<code>A-&gt;C = 2</code>、<code>B-&gt;C = -10</code>，Dijkstra 給你 <code>C = 2</code>。 正確答案是走 B 的 <code>-5</code>。今天整篇文章都是為了處理這件事。</p>]]></content>
   </entry>
   <entry>
-    <title>Day 16 - Prim and Dijkstra - one heap-greedy skeleton / Prim 與 Dijkstra：同一套 heap greedy 骨架</title>
+    <title>Python 100days - Day 16 - Prim and Dijkstra - one heap-greedy skeleton / Prim 與 Dijkstra：同一套 heap greedy 骨架</title>
     <link href="https://kingrei.github.io/python/day16/"/>
     <id>https://kingrei.github.io/python/day16/</id>
     <published>2026-08-26T00:00:00.000Z</published>
@@ -67,7 +67,7 @@
 <p>昨天的 <a href="https://medium.com/100-days-of-python">Kruskal</a> 是把所有邊排序一次，再用 Union-Find 過濾。 Prim 從另一個方向解同一個問題，而正是這個方向的改變，讓 Dijkstra 免費掉出來。</p>]]></content>
   </entry>
   <entry>
-    <title>Day 15 - Minimum Spanning Tree - Kruskal / 最小生成樹：Kruskal</title>
+    <title>Python 100days - Day 15 - Minimum Spanning Tree - Kruskal / 最小生成樹：Kruskal</title>
     <link href="https://kingrei.github.io/python/day15/"/>
     <id>https://kingrei.github.io/python/day15/</id>
     <published>2026-08-25T00:00:00.000Z</published>
@@ -76,7 +76,7 @@
 <p>昨天寫了 Union-Find，說它是那個能在近乎常數時間回答「這兩個東西已經連在一起了嗎？」的結構。 今天你會發現，那個問題本身就是整個演算法。</p>]]></content>
   </entry>
   <entry>
-    <title>Day 14 - Union-Find / 併查集</title>
+    <title>Python 100days - Day 14 - Union-Find / 併查集</title>
     <link href="https://kingrei.github.io/python/day14/"/>
     <id>https://kingrei.github.io/python/day14/</id>
     <published>2026-08-24T00:00:00.000Z</published>
@@ -85,7 +85,7 @@
 <p>聽起來窄到沒什麼用，但你會發現這常常是你唯一想問的問題。這兩個帳號是不是同一個人？ 那條線斷掉之後還剩幾個獨立網路？加上這條邊會不會形成環？哪些像素屬於同一個色塊？</p>]]></content>
   </entry>
   <entry>
-    <title>Day 13 - Topological Sort / 拓樸排序</title>
+    <title>Python 100days - Day 13 - Topological Sort / 拓樸排序</title>
     <link href="https://kingrei.github.io/python/day13/"/>
     <id>https://kingrei.github.io/python/day13/</id>
     <published>2026-08-23T00:00:00.000Z</published>
@@ -94,7 +94,7 @@
 <p>昨天我們學會走訪一張圖，今天要用「尊重相依關係」的順序走它。你會發現這其實就是昨天的 BFS 和 DFS，只多記了一點東西。接下來整個圖論章節都是這個套路。</p>]]></content>
   </entry>
   <entry>
-    <title>Day 12 - Graph Traversal / BFS 與 DFS</title>
+    <title>Python 100days - Day 12 - Graph Traversal / BFS 與 DFS</title>
     <link href="https://kingrei.github.io/python/day12/"/>
     <id>https://kingrei.github.io/python/day12/</id>
     <published>2026-08-22T00:00:00.000Z</published>
@@ -103,7 +103,7 @@
 <p>接下來這一週幾乎所有東西——拓樸排序、最小生成樹、最短路徑、連通分量、環偵測——都是下面這兩種走訪加上一點額外的記帳。所以今天內容不多，但後座力很長。</p>]]></content>
   </entry>
   <entry>
-    <title>Day 11 - Graph - turning relationships into a data structure / 圖：把「關係」變成資料結構</title>
+    <title>Python 100days - Day 11 - Graph - turning relationships into a data structure / 圖：把「關係」變成資料結構</title>
     <link href="https://kingrei.github.io/python/day11/"/>
     <id>https://kingrei.github.io/python/day11/</id>
     <published>2026-08-21T00:00:00.000Z</published>
@@ -112,7 +112,7 @@
 <p>Different data structures for the representation of graphs are used in practice:</p>]]></content>
   </entry>
   <entry>
-    <title>Day 10 - Hash Table - Open Addressing / 雜湊表：開放定址法</title>
+    <title>Python 100days - Day 10 - Hash Table - Open Addressing / 雜湊表：開放定址法</title>
     <link href="https://kingrei.github.io/python/day10/"/>
     <id>https://kingrei.github.io/python/day10/</id>
     <published>2026-08-20T00:00:00.000Z</published>
@@ -121,7 +121,7 @@
 <p>In another strategy from chaining, called open addressing. When a new entry has to be inserted, the buckets are examined, starting with the hashed-to slot and proceeding in some probe sequence, until an unoccupied slot is found. When searching for an entry, the buckets are scanned in the same sequence, until either the target record is found, or an unused array slot is found, which indicates that there is no such key in the table.The name &quot;open addressing&quot; refers to the fact that the location (&quot;address&quot;) of the item is not determined by its hash value.</p>]]></content>
   </entry>
   <entry>
-    <title>Day 09 - Hash Table - Chaining / 雜湊表：分離鏈結法</title>
+    <title>Python 100days - Day 09 - Hash Table - Chaining / 雜湊表：分離鏈結法</title>
     <link href="https://kingrei.github.io/python/day09/"/>
     <id>https://kingrei.github.io/python/day09/</id>
     <published>2026-08-19T00:00:00.000Z</published>
@@ -130,7 +130,7 @@
 <p>Ideally, the hash function will assign each key to a unique bucket, but most hash table designs employ an imperfect hash function, which might cause hash collisions where the hash function generates the same index for more than one key. Such collisions must be accommodated in some way.</p>]]></content>
   </entry>
   <entry>
-    <title>Day 08 - Word Break / Word Break</title>
+    <title>Python 100days - Day 08 - Word Break / Word Break</title>
     <link href="https://kingrei.github.io/python/day08/"/>
     <id>https://kingrei.github.io/python/day08/</id>
     <published>2026-08-18T00:00:00.000Z</published>
@@ -139,7 +139,7 @@
 <p>Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, add spaces in s to construct a sentence where each word is a valid dictionary word. Return all such possible sentences.</p>]]></content>
   </entry>
   <entry>
-    <title>Day 07 - list, tuple, dict and set / list、tuple、dict 與 set</title>
+    <title>Python 100days - Day 07 - list, tuple, dict and set / list、tuple、dict 與 set</title>
     <link href="https://kingrei.github.io/python/day07/"/>
     <id>https://kingrei.github.io/python/day07/</id>
     <published>2026-08-17T00:00:00.000Z</published>
@@ -147,7 +147,7 @@
     <content type="html"><![CDATA[<p>Today I will introduce some convinient tools in Python. There is no complicated algorithm and data structure. Take it easy!</p>]]></content>
   </entry>
   <entry>
-    <title>Day 06 - Binomial Heap / 二項堆積</title>
+    <title>Python 100days - Day 06 - Binomial Heap / 二項堆積</title>
     <link href="https://kingrei.github.io/python/day06/"/>
     <id>https://kingrei.github.io/python/day06/</id>
     <published>2026-08-16T00:00:00.000Z</published>
@@ -155,7 +155,7 @@
     <content type="html"><![CDATA[<p>A binomial heap is implemented as a set of binomial trees (compare with a binary heap, which has a shape of a single binary tree), which are defined recursively as follows:</p>]]></content>
   </entry>
   <entry>
-    <title>Day 05 - Binary Heap (Priority Queue) / 二元堆積（優先佇列）</title>
+    <title>Python 100days - Day 05 - Binary Heap (Priority Queue) / 二元堆積（優先佇列）</title>
     <link href="https://kingrei.github.io/python/day05/"/>
     <id>https://kingrei.github.io/python/day05/</id>
     <published>2026-08-15T00:00:00.000Z</published>
@@ -164,7 +164,7 @@
 <p>The datas of binary heap are actually stored a array list like this: !<a target="_blank" rel="noopener" href="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Heap-as-array.svg/603px-Heap-as-array.svg.png">Heap</a></p>]]></content>
   </entry>
   <entry>
-    <title>Day 04 - Binary Search Tree / 二元搜尋樹</title>
+    <title>Python 100days - Day 04 - Binary Search Tree / 二元搜尋樹</title>
     <link href="https://kingrei.github.io/python/day04/"/>
     <id>https://kingrei.github.io/python/day04/</id>
     <published>2026-08-14T00:00:00.000Z</published>
@@ -173,7 +173,7 @@
 <p>I write the code of main function in TreeNode class, different from code in <em>day03</em> which in BinarySearchTree class. Both are acceptable.</p>]]></content>
   </entry>
   <entry>
-    <title>Day 03 - Tree / 樹</title>
+    <title>Python 100days - Day 03 - Tree / 樹</title>
     <link href="https://kingrei.github.io/python/day03/"/>
     <id>https://kingrei.github.io/python/day03/</id>
     <published>2026-08-13T00:00:00.000Z</published>
@@ -182,7 +182,7 @@
 <p>A binary search tree is a rooted binary tree, whose internal nodes each store a key (and optionally, an associated value) and each have two distinguished sub-trees, commonly denoted left and right. The tree additionally satisfies the binary search property, which states that the key in each node must be greater than or equal to any key stored in the left sub-tree, and less than or equal to any key stored in the right sub-tree. The leaves (final nodes) of the tree contain no key and have no structure to distinguish them from one another.</p>]]></content>
   </entry>
   <entry>
-    <title>Day 02 - Stack and Queue / 堆疊與佇列</title>
+    <title>Python 100days - Day 02 - Stack and Queue / 堆疊與佇列</title>
     <link href="https://kingrei.github.io/python/day02/"/>
     <id>https://kingrei.github.io/python/day02/</id>
     <published>2026-08-12T00:00:00.000Z</published>
@@ -191,7 +191,7 @@
 <p>In computer science, a queue is a particular kind of abstract data type or collection in which the entities in the collection are kept in order and the principal (or only) operations on the collection are the addition of entities to the rear terminal position, known as <strong>enqueue</strong>, and removal of entities from the front terminal position, known as <strong>dequeue</strong>.</p>]]></content>
   </entry>
   <entry>
-    <title>Day 01 - Linked List / 鏈結串列</title>
+    <title>Python 100days - Day 01 - Linked List / 鏈結串列</title>
     <link href="https://kingrei.github.io/python/day01/"/>
     <id>https://kingrei.github.io/python/day01/</id>
     <published>2026-08-11T00:00:00.000Z</published>
